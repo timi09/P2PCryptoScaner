@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  p2pcryptoscaner:
+    image: ${DOCKER_REGISTRY-}p2pcryptoscaner
+    build:
+      context: .
+      dockerfile: Dockerfile
+      
+  db:
+    image: "mcr.microsoft.com/mssql/server:2017-latest"

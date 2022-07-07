@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@model P2PCryptoScaner.ViewModels.LevelListViewModel
+
+@{
+    ViewData["Title"] = "Levels";
+}
+
+<h1 class="text-center mt-3">Levels</h1>
+
+@if (User.IsInRole("moderator"))
+{
+    <p>
+    <a asp-action="Create">Create New</a>
+    </p>
+}
+
+<div class="row mt-3">
+    @foreach (var item in Model.AllLevels){
+    <div class="card m-md-auto" style="max-width: 20rem;">
+      @*<div class="card-header">От спонсора</div>*@
+        <div class="card-body">
+      
+            <h4 class="card-title">
+                @Html.DisplayFor(modelItem => item.Name)
+            </h4>
+        
+            <h6 class="card-title">
+                @Html.DisplayFor(modelItem => item.Duration.Days) days
+            </h6>
+        
+            <div class="card-text">
+                @foreach (var line in item.Description.Split('\n'))
+                {
+                    <p>
+                        @line
+                    </p>
+                }
+                    
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            @if (Model.UserLevelId is not null && item.Id == Model.UserLevelId)
+            {
+                <a href="#" class="btn btn-secondary btn-lg disabled">Applied</a>
+            }
+            else
+            {
+                <a asp-action="Buy" asp-route-id="@item.Id" class="btn btn-primary btn-lg">
+                    Buy @Html.DisplayFor(modelItem => item.Price)
+                </a>
+            }
+
+            @if (User.IsInRole("moderator"))
+            {
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            }
+
+        </div>
+    </div>
+    }
+</div>

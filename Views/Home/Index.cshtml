@@ -1,0 +1,358 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@model P2PCryptoScaner.Models.Level
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    
+    <div class="row pt-4">
+        <div class="col text-center">
+
+            <h1 class="text-success"> Buy </h1>
+
+            <h6 class="mt-3">Exchenges</h6>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="checkbox" class="btn-check" id="btn-check-binance-buy" autocomplete="off">
+                <label class="btn btn-outline-warning" for="btn-check-binance-buy">Binance</label>
+
+                @if(Model is not null && Model.Name == "Diamond")
+                {
+                    <input type="checkbox" class="btn-check" id="btn-check-huobi-buy" autocomplete="off" >
+                    <label class="btn btn-outline-primary" for="btn-check-huobi-buy">Huobi</label>
+
+                    <input type="checkbox" class="btn-check" id="btn-check-okx-buy" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btn-check-okx-buy">Okx</label>
+                }
+                else
+                {
+                    <input type="checkbox" class="btn-check" id="btn-check-huobi-buy" autocomplete="off" disabled>
+                    <label class="btn btn-outline-primary" for="btn-check-huobi-buy">Huobi</label>
+
+                    <input type="checkbox" class="btn-check" id="btn-check-okx-buy" autocomplete="off" disabled>
+                    <label class="btn btn-outline-secondary" for="btn-check-okx-buy">Okx</label>
+                }
+
+                
+            </div>
+
+            <h6 class="mt-3">Payment</h6>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="checkbox" class="btn-check" id="btn-check-sber-buy" autocomplete="off">
+                <label class="btn btn-outline-success" for="btn-check-sber-buy">Sberbank</label>
+
+                <input type="checkbox" class="btn-check" id="btn-check-tinkoff-buy" autocomplete="off">
+                <label class="btn btn-outline-warning" for="btn-check-tinkoff-buy">Tinkoff</label>
+
+                <input type="checkbox" class="btn-check" id="btn-check-alfa-buy" autocomplete="off">
+                <label class="btn btn-outline-danger" for="btn-check-alfa-buy">Alfa Bank</label>
+
+                <input type="checkbox" class="btn-check" id="btn-check-qiwi-buy" autocomplete="off">
+                <label class="btn btn-outline-warning" for="btn-check-qiwi-buy">Qiwi</label>
+            </div>
+
+            <h6 class="mt-3">Order type</h6>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="radio" class="btn-check" name="odrertypesell" id="btnradio-buytype-buy" autocomplete="off" checked>
+                <label class="btn btn-outline-success" for="btnradio-buytype-buy">Limit buy</label>
+
+                <input type="radio" class="btn-check" name="odrertypesell" id="btnradio-selltype-buy" autocomplete="off">
+                <label class="btn btn-outline-danger" for="btnradio-selltype-buy">Market buy</label>
+
+            </div>
+             
+            <table class="table table-hover mt-4" id="ordertable-buy">
+              <thead>
+                <tr>
+                  <th scope="col">Exchenge</th>
+                  <th scope="col">Payment</th>
+                  <th scope="col">Volume</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-2 text-center">
+
+            <h4 > Cryptocurrency </h4>
+            <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" name="cryptoradio" id="btnradio-usdt" autocomplete="off" checked>
+                  <label class="btn btn-outline-success" for="btnradio-usdt">USDT</label>
+                  
+                  @if(Model is not null && (Model.Name == "Gold" || Model.Name == "Diamond"))
+                  {
+                      <input type="radio" class="btn-check" name="cryptoradio" id="btnradio-btc" autocomplete="off">
+                      <label class="btn btn-outline-warning" for="btnradio-btc">BTC</label>
+
+                      <input type="radio" class="btn-check" name="cryptoradio" id="btnradio-eth" autocomplete="off">
+                      <label class="btn btn-outline-secondary" for="btnradio-eth">ETH</label>
+                  }
+                  else
+                  {
+                      <input type="radio" class="btn-check" name="cryptoradio" id="btnradio-btc" autocomplete="off" disabled>
+                      <label class="btn btn-outline-warning" for="btnradio-btc">BTC</label>
+
+                      <input type="radio" class="btn-check" name="cryptoradio" id="btnradio-eth" autocomplete="off" disabled>
+                      <label class="btn btn-outline-secondary" for="btnradio-eth">ETH</label>
+                  }
+                  
+            </div>
+            @if (!SignInManager.IsSignedIn(User))
+            {
+                <div class="my-5">
+                    <h1 > Login or Register </h1>
+                
+                    <a class="btn btn-primary btn-lg m-2" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    
+                    <a class="btn btn-primary btn-lg m-2" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                
+                </div>
+            }
+            else if(Model is null)
+            {
+                <div class="my-5">
+                <h1 > Please extend your access level </h1>
+                <a class="btn btn-primary btn-lg m-2" asp-area="" asp-controller="Level" asp-action="Index">Extend level</a>
+                 </div>
+            }
+
+
+        </div>
+
+        <div class="col text-center">
+
+            <h1 class="text-danger"> Sell </h1>
+
+            <h6 class="mt-3">Exchenges</h6>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="checkbox" class="btn-check" id="btn-check-binance-sell" autocomplete="off">
+                <label class="btn btn-outline-warning" for="btn-check-binance-sell">Binance</label>
+
+                @if(Model is not null && Model.Name == "Diamond")
+                {
+                    <input type="checkbox" class="btn-check" id="btn-check-huobi-sell" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btn-check-huobi-sell">Huobi</label>
+
+                    <input type="checkbox" class="btn-check" id="btn-check-okx-sell" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btn-check-okx-sell">Okx</label>
+                }
+                else
+                {
+                    <input type="checkbox" class="btn-check" id="btn-check-huobi-sell" autocomplete="off" disabled>
+                    <label class="btn btn-outline-primary" for="btn-check-huobi-sell">Huobi</label>
+
+                    <input type="checkbox" class="btn-check" id="btn-check-okx-sell" autocomplete="off" disabled>
+                    <label class="btn btn-outline-secondary" for="btn-check-okx-sell">Okx</label>
+                }
+
+                
+            </div>
+
+            <h6 class="mt-3">Payment</h6>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="checkbox" class="btn-check" id="btn-check-sber-sell" autocomplete="off">
+                <label class="btn btn-outline-success" for="btn-check-sber-sell">Sberbank</label>
+
+                <input type="checkbox" class="btn-check" id="btn-check-tinkoff-sell" autocomplete="off">
+                <label class="btn btn-outline-warning" for="btn-check-tinkoff-sell">Tinkoff</label>
+
+                <input type="checkbox" class="btn-check" id="btn-check-alfa-sell" autocomplete="off">
+                <label class="btn btn-outline-danger" for="btn-check-alfa-sell">Alfa Bank</label>
+
+                <input type="checkbox" class="btn-check" id="btn-check-qiwi-sell" autocomplete="off">
+                <label class="btn btn-outline-warning" for="btn-check-qiwi-sell">Qiwi</label>
+            </div>
+
+            <h6 class="mt-3">Order type</h6>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="radio" class="btn-check" name="odrertypebuy" id="btnradio-buytype-sell" autocomplete="off" checked>
+                <label class="btn btn-outline-success" for="btnradio-buytype-sell">Market sell</label>
+
+                <input type="radio" class="btn-check" name="odrertypebuy" id="btnradio-selltype-sell" autocomplete="off">
+                <label class="btn btn-outline-danger" for="btnradio-selltype-sell">Limit sell</label>
+
+            </div>
+
+            <table class="table table-hover mt-4" id="ordertable-sell">
+              <thead>
+                <tr>
+                  <th scope="col">Exchenge</th>
+                  <th scope="col">Payment</th>
+                  <th scope="col">Volume</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@if (Model is not null)
+{
+    <script>
+    const uri = 'api/p2p';
+    var orders = {};
+    var exchenheName = ["Binance", "Huobi", "Okx"];
+    var payTypeName = [ "Sberbank", "Tinkoff", "Alfa bank", "Qiwi" ];
+
+    var exchengeClass = {"Binance": "text-warning", "Huobi": "text-primary", "Okx": "text-secondary"};
+    var paytypeClass = { "Sberbank": "text-success", "Tinkoff": "text-warning", "Alfa bank": "text-danger", "Qiwi": "text-warning" };
+
+    var cryptocurrency = "USDT"
+
+    var exchengesbuy = {"Binance": 0, "Huobi": 0, "Okx": 0};
+    var paytypesbuy = { "Sberbank": 0, "Tinkoff": 0, "Alfabank": 0, "Qiwi": 0 };
+    var ordertypebuy = "Buy";
+
+    var exchengessell = {"Binance": 0, "Huobi": 0, "Okx": 0};
+    var paytypessell = { "Sberbank": 0, "Tinkoff": 0, "Alfabank": 0, "Qiwi": 0 };
+    var ordertypesell = "Buy";
+
+    function KeyAddRemove(container, key) {
+      if (container.hasOwnProperty(key)){
+        container[key] = (container[key]+1)%2;
+      }
+        _displayOrders();
+    }
+
+    document.querySelector("#btnradio-usdt").onclick = () => { cryptocurrency = "USDT"; _displayOrders(); };
+    document.querySelector("#btnradio-btc").onclick = () => { cryptocurrency = "BTC"; _displayOrders(); };
+    document.querySelector("#btnradio-eth").onclick = () => { cryptocurrency = "ETH"; _displayOrders(); };
+
+
+    document.querySelector("#btn-check-binance-buy").onclick = () => { KeyAddRemove(exchengesbuy, "Binance"); };
+    document.querySelector("#btn-check-huobi-buy").onclick = () => { KeyAddRemove(exchengesbuy, "Huobi"); };
+    document.querySelector("#btn-check-okx-buy").onclick = () => { KeyAddRemove(exchengesbuy, "Okx"); };
+
+    document.querySelector("#btn-check-sber-buy").onclick = () => { KeyAddRemove(paytypesbuy, "Sberbank"); };
+    document.querySelector("#btn-check-tinkoff-buy").onclick = () => { KeyAddRemove(paytypesbuy, "Tinkoff"); };
+    document.querySelector("#btn-check-alfa-buy").onclick = () => { KeyAddRemove(paytypesbuy, "Alfabank"); };
+    document.querySelector("#btn-check-qiwi-buy").onclick = () => { KeyAddRemove(paytypesbuy, "Qiwi"); };
+
+    document.querySelector("#btnradio-buytype-buy").onclick = () => { ordertypebuy = "Buy"; _displayOrders(); };
+    document.querySelector("#btnradio-selltype-buy").onclick = () => { ordertypebuy = "Sell"; _displayOrders();};
+
+
+    document.querySelector("#btn-check-binance-sell").onclick = () => { KeyAddRemove(exchengessell, "Binance"); };
+    document.querySelector("#btn-check-huobi-sell").onclick = () => { KeyAddRemove(exchengessell, "Huobi"); };
+    document.querySelector("#btn-check-okx-sell").onclick = () => { KeyAddRemove(exchengessell, "Okx"); };
+
+    document.querySelector("#btn-check-sber-sell").onclick = () => { KeyAddRemove(paytypessell, "Sberbank"); };
+    document.querySelector("#btn-check-tinkoff-sell").onclick = () => { KeyAddRemove(paytypessell, "Tinkoff"); };
+    document.querySelector("#btn-check-alfa-sell").onclick = () => { KeyAddRemove(paytypessell, "Alfabank"); };
+    document.querySelector("#btn-check-qiwi-sell").onclick = () => { KeyAddRemove(paytypessell, "Qiwi"); };
+
+    document.querySelector("#btnradio-buytype-sell").onclick = () => { ordertypesell = "Buy"; _displayOrders(); };
+    document.querySelector("#btnradio-selltype-sell").onclick = () => { ordertypesell = "Sell"; _displayOrders(); };
+
+    function getOrders() {
+      fetch(uri)
+        .then(response => response.json())
+        .then(data => orders = data)
+        .then(() => _displayOrders())
+        .catch(error => console.error('Unable to get orders.', error));
+    }
+
+    function _displayOrders() {
+        //buy section
+        fillTable(document.querySelector("#ordertable-buy"), exchengesbuy, paytypesbuy, ordertypebuy, (a, b) => {
+            return a.Price - b.Price;
+        });
+
+        fillTable(document.querySelector("#ordertable-sell"), exchengessell, paytypessell, ordertypesell, (a, b) => {
+            return b.Price - a.Price;
+        });
+    }
+
+    function fillTable(table, exchenges, paytypes, ordertype, sortFunc) {
+        ordersForTable = []
+        for (const [exchenge, value1] of Object.entries(exchenges)) {
+            if (value1 == 1 && orders.hasOwnProperty(exchenge)){
+                for (const [payType, value2] of Object.entries(paytypes)) {
+                    if (value2 == 1 && orders[exchenge].hasOwnProperty(cryptocurrency)) {
+                        ordersForTable.push(...orders[exchenge][cryptocurrency][payType][ordertype]);
+                    }
+                }
+            }
+        }
+
+        ordersForTable.sort(sortFunc);
+
+        var count = ordersForTable.length > 10? 10 : ordersForTable.length;
+
+        while (table.querySelector("tbody").children.length > 0) {
+            table.querySelector("tbody").children[0].remove();
+        }
+
+        for (var i = 0; i < count; i++) {
+           addRow(table, ordersForTable[i])
+        }
+    }
+
+    function getLink (order) {
+        
+        if (order.ExchengeName == "Binance") {
+            var payment = [ "RosBank", "Tinkoff", "ABank", "QIWI" ];
+            if (order.Type == 0) {
+                return `https://p2p.binance.com/ru/trade/${payment[order.PayType]}/${cryptocurrency}?fiat=RUB`;
+            }
+            else {
+                return `https://p2p.binance.com/ru/trade/sell/${cryptocurrency}?fiat=RUB&payment=${payment[order.PayType]}`;
+            }
+        }
+        else {
+            if (order.ExchengeName == "Huobi") {
+                return `https://c2c.huobi.com/ru-ru/trade/${order.Type == 0 ? "buy" : "sell"}-${cryptocurrency.toLowerCase()}/`;
+            }
+            else {
+                if (order.ExchengeName == "Okx") {
+                    return `https://www.okx.com/ru/p2p-markets/rub/${order.Type == 0 ? "buy" : "sell"}-${cryptocurrency.toLowerCase()}`;
+                }
+                else {
+                    return `https://p2p.binance.com/ru/trade/${order.Type == 0 ? "buy" : "sell"}/${cryptocurrency}?fiat=RUB&payment=ALL`;
+                }
+            }
+        }
+
+    }
+
+    function addRow (table, order) {
+      
+        var row = table.querySelector("tbody").insertRow();
+
+        var cell = row.insertCell();
+        cell.innerHTML = order.ExchengeName;
+        cell.className = exchengeClass[cell.innerHTML];
+
+        cell = row.insertCell();
+        cell.innerHTML = payTypeName[order.PayType];
+        cell.className = paytypeClass[cell.innerHTML];
+
+        cell = row.insertCell();
+        cell.innerHTML = order.MinAmount + "-" + order.MaxAmount + " RUB";
+
+        cell = row.insertCell();
+        cell.innerHTML = order.Price + " RUB";
+
+        cell = row.insertCell();
+        cell.innerHTML ='<a href="'+getLink(order)+'" target="_blank">🡵</a>';
+    }
+
+    let timerId = setInterval(() => getOrders(), 10000);
+
+    </script>
+}

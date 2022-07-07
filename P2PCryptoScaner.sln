@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P2PCryptoScaner", "P2PCryptoScaner.csproj", "{38E96041-8A03-4163-A561-3094676C6F69}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D155D37E-9800-40DA-9386-4A2C55746156}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38E96041-8A03-4163-A561-3094676C6F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E96041-8A03-4163-A561-3094676C6F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E96041-8A03-4163-A561-3094676C6F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E96041-8A03-4163-A561-3094676C6F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D155D37E-9800-40DA-9386-4A2C55746156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D155D37E-9800-40DA-9386-4A2C55746156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D155D37E-9800-40DA-9386-4A2C55746156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D155D37E-9800-40DA-9386-4A2C55746156}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3AEE82D-4F7B-4115-AA38-4631F1108C85}
+	EndGlobalSection
+EndGlobal
