@@ -43,6 +43,7 @@
 
 ### Способ 2
 Понадобится git и Docker Desktop (docker и docker-compose для linux)
+
 Клонируйте репозиторий: 
 ```
 git clone https://github.com/timi09/P2PCryptoScaner.git
@@ -56,6 +57,7 @@ git clone https://github.com/timi09/P2PCryptoScaner.git
 docker compose up
 ```
 Подождите пока установятся необходимые пакеты.
+
 Когда увидите строку типа 
 ```
 Content root path: /app/ 
