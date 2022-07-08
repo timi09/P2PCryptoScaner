@@ -37,7 +37,8 @@
 ### Способ 1
 
 Загрузите репозиторий с github
-Загрузите его через свою Visual Studio с помощью файла решения P2PCryptoScaner.sln
+
+Запустите решение через свою Visual Studio с помощью файла решения P2PCryptoScaner.sln
 
 > **Примечание:** Если вы будете запускать приложение не через docker compose. То измените строку подключения к базе данных в файле appsettings.json. Найдите строку "DefaultConnection": "Server=db;Initial Catalog=MssqlServerContainer;User Id=sa;Password=SwN12345678;" замените ее на строку подключения к вашей локальной базе данных, например "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=your-local-db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
 
