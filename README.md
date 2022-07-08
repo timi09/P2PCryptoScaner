@@ -19,3 +19,9 @@
 
 ![image](https://github.com/timi09/gifs/blob/main/P2PCryptoScaner/levelsilver.gif)
 <p align="center">Получение уровня доступа</p>
+
+<br/>
+<br/>
+
+![image](https://github.com/timi09/gifs/blob/main/P2PCryptoScaner/levelgold.gif)
+<p align="center">Влияние уровня доступа на функционал</p>
