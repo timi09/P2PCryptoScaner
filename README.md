@@ -8,3 +8,10 @@
 Так же на сайте имеется панель администратора. Администратор может выдавать роли пользователям, создавать/удалять/редактировать уровни подписки, или деактивировать их.
 
 Используемые технологии: ASP.NET Core MVC, ASP.NET Core Identity, Entity Framework Core.
+
+## Немного визуализации
+Пока у меня нет возможности захостить данный проект для примера, поэтому решил показать основной функционал здесь
+![image](https://github.com/ZhengYaWei1992/ZWProgressView/blob/master/Untitled3.gif)
+Описание:
+https://github.com/ZhengYaWei1992/ZWProgressView/blob/master/Untitled3.gif
+ URL-адрес ссылки - это URL-адрес ссылки, отображаемый в github после загрузки изображения в формате gif.
