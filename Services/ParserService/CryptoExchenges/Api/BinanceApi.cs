@@ -91,7 +91,7 @@ namespace P2PCryptoScaner.Services.ParserService.CryptoExchenges.Api
             public string maxSingleTransQuantity { get; set; } 
             public string minSingleTransAmount { get; set; } 
             public string minSingleTransQuantity { get; set; } 
-            public int payTimeLimit { get; set; } 
+            public object payTimeLimit { get; set; } 
             public string price { get; set; } 
             public int priceScale { get; set; } 
             public string surplusAmount { get; set; } 
