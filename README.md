@@ -51,7 +51,7 @@ git clone https://github.com/timi09/P2PCryptoScaner.git
 ```
 Перейдите в каталог репозитория /P2PCryptoScaner где хранится файл docker-compose.yml
 
-Запустите PowerShell нажав Shift+Правой кнопкой мыши по пустому месту в папке. В выпавшем контекстном меню нажмите "открыть окно PowerShell здесь".
+> Запустите PowerShell нажав Shift+Правой кнопкой мыши по пустому месту в папке. В выпавшем контекстном меню нажмите "открыть окно PowerShell здесь".
 
 Выполните в PowerShell:
 ```
