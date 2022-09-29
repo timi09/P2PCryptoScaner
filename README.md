@@ -11,25 +11,25 @@
 
 ## Немного визуализации
 Пока у меня нет возможности захостить данный проект для примера, поэтому решил показать основной функционал здесь
-![image](https://github.com/timi09/gifs/blob/main/P2PCryptoScaner/register.gif)
+![image](https://github.com/timi09/assets/blob/main/P2PCryptoScaner/register.gif)
 <p align="center">Регистрация и вход</p>
 
 <br/>
 <br/>
 
-![image](https://github.com/timi09/gifs/blob/main/P2PCryptoScaner/levelsilver.gif)
+![image](https://github.com/timi09/assets/blob/main/P2PCryptoScaner/levelsilver.gif)
 <p align="center">Получение уровня доступа</p>
 
 <br/>
 <br/>
 
-![image](https://github.com/timi09/gifs/blob/main/P2PCryptoScaner/levelgold.gif)
+![image](https://github.com/timi09/assets/blob/main/P2PCryptoScaner/levelgold.gif)
 <p align="center">Влияние уровня доступа на функционал</p>
 
 <br/>
 <br/>
 
-![image](https://github.com/timi09/gifs/blob/main/P2PCryptoScaner/admin.gif)
+![image](https://github.com/timi09/assets/blob/main/P2PCryptoScaner/admin.gif)
 <p align="center">Панель админа</p>
 
 ## Загрузка и использование
