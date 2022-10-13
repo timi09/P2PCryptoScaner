@@ -10,7 +10,6 @@
 Используемые технологии: ASP.NET Core MVC, ASP.NET Core Identity, Entity Framework Core.
 
 ## Немного визуализации
-Пока у меня нет возможности захостить данный проект для примера, поэтому решил показать основной функционал здесь
 ![image](https://github.com/timi09/assets/blob/main/P2PCryptoScaner/register.gif)
 <p align="center">Регистрация и вход</p>
 
